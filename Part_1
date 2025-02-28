@@ -1,0 +1,50 @@
+1)
+import numpy as np
+
+# Criando os arrays
+arr1 = np.ones(8, dtype=int)
+arr2 = np.random.randint(0, 10, 8)
+
+# Somando os arrays
+resultado = arr1 + arr2
+
+# Verificando a soma total
+if resultado.sum() >= 40:
+    resultado = resultado.reshape(4, 2)  # Mais linhas que colunas
+else:
+    resultado = resultado.reshape(2, 4)  # Mais colunas que linhas
+
+print(resultado)
+
+2)
+import numpy as np
+
+# Criando os arrays de números pares
+arr1 = np.arange(0, 52, 2)  # De 0 a 51
+arr2 = np.arange(100, 48, -2)  # De 100 a 50
+
+# Concatenando e ordenando
+resultado = np.sort(np.concatenate((arr1, arr2)))
+
+print(resultado)
+
+3)
+import numpy as np
+
+# Criando a matriz 2x2 com zeros
+campo = np.zeros((2, 2), dtype=int)
+
+# Adicionando um '1' em posição aleatória
+x, y = np.random.randint(0, 2, 2)
+campo[x, y] = 1
+
+# Jogadas do usuário
+for tentativa in range(3):
+    linha = int(input("Escolha a linha (0 ou 1): "))
+    coluna = int(input("Escolha a coluna (0 ou 1): "))
+
+    if campo[linha, coluna] == 1:
+        print("Game Over! :( Try Again!")
+        break
+else:
+    print("Congratulations! You beat the game! :)")
